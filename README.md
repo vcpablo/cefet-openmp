@@ -13,6 +13,10 @@
 - `-o`: gera um executável
 - `executavel`: nome do executável a ser gerado
 
+Para compilar com o OpenMP:
+
+`gcc -fopenmp programa.c -o executavel`
+
 ## Execução
 
 `./executavel`
@@ -56,3 +60,7 @@ Depois que a implementação estiver terminada, a gente faz o merge.
 `git push origin bubblesort`
 
 
+# Links importantes
+
+OpenMP
+* https://www.ibm.com/developerworks/br/aix/library/au-aix-openmp-framework/
