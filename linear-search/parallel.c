@@ -1,13 +1,15 @@
-#include<stdio.h>
-#include<omp.h>
-#define ARRAYSIZE 100
+#include <stdio.h>
+#include <omp.h>
+#include "utils.h"
+#define ARRAYSIZE 1000000
 
 int main(void)
 {
-  int a[] = {81,84,38,9,71,78,49,58,25,8,69,57,36,23,89,62,47,64,77,94,66,12,2,32,26,51,48,55,37,91,13,3,41,97,90,4,59,54,87,35100,74,19,16,33,18,67,20,30,6,93,10,86,14,43,83,79,27,73,21,28,92,98,60,61,46,31,63,53,85,50,80,24,70,72,42,76,68,65,45,95,88,7,1,5,82,96,15,40,29,22,75,39,99,34,11,17,56,52,44};
-
+  int a[ARRAYSIZE];
   int i, j, found = 0, key = 86;
   double start_time, run_time;
+
+  populate_array(a, ARRAYSIZE);
 
   //armazena o tempo em que o processamento foi iniciado
   start_time = omp_get_wtime();
@@ -44,7 +46,7 @@ int main(void)
 
   //calcula o tempo de execução
   run_time = omp_get_wtime() - start_time;
-  printf("%f segundos com %d threads\n\n", run_time, j);
+  printf("%f segundos com %d threads", run_time, j);
 
   return 0;
 }
