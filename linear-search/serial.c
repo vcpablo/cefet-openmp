@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-#include "utils.h"
+#include "../utils.h"
 #define ARRAYSIZE 1000000
 
 int main()
