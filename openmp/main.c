@@ -2,7 +2,34 @@
 #include "serialCountingSort.h"
 #include "populateArray.h"
 
-#define ARRAY_SIZE 100
+#define ARRAY_SIZE 1000
+
+/* 
+sempre utilizar a mesma implementação do algoritmo
+o algoritmo para ser paralelizado deve ser implementado em sua forma canonica (sem alteração da forma como é executado dentro do loop)
+
+se o for for criado (i = 0; i < tam ; i++), deve seguir exatamente esta maneira de ser executado
+
+/*************/
+/*
+
+RODAR COM 4 e 2 threads
+
+speedup - (Ts) tempo serial /(Tp) tempo paralelo
+
+
+Eficiência
+
+E = S/p (S = speedup, p = num proc/threads), valores entre 0 e 1 /  o valor ideal é 1
+
+Escalabilidade
+
+capacidade de manter a eficiencia conforme quantidade de trabalho e quantidade de threads aumenta
+
+o programa passa a apresentar perda de escalabilidade a partir do momento em que o aumento de trabalho + aumento de threads gera perda de eficiencia.
+*/
+*/
+
 
 int main(){
 	printf("\nArray size: %d\n\n", ARRAY_SIZE);
@@ -14,6 +41,9 @@ int main(){
 	/* Populates the array */
 	populateArray(array, ARRAY_SIZE);
 
+	/* Prints the array */
+//	printArray(array, ARRAY_SIZE);
+
 	/* Timer */
 	start = clock();
 
@@ -23,7 +53,7 @@ int main(){
 	double time = (float)(end - start) / CLOCKS_PER_SEC;
 
 
-	printf("Serial: %f", time);
+	printf("\nSerial: %f\n", time);
 
 	/* Checks if elements were really ordered */
 	//printArray(array, ARRAY_SIZE);
@@ -32,16 +62,22 @@ int main(){
 	/* Populates the array */
 	populateArray(array, ARRAY_SIZE);
 
+
+
 	/* Timer */
 	start = clock();
 
 	/* Parallel counting sort execution */
+printf("\n\nStart parallel\n\n");
 	parallelCountingSort(array, ARRAY_SIZE);
 	end = clock();
 	time = (float)(end - start) / CLOCKS_PER_SEC;
 
 
 	printf("\nParallel: %f\n\n", time);
+
+	/* Prints the array */
+	//printArray(array, ARRAY_SIZE);
 
 	/* Checks if elements were really ordered */
 	//printArray(array, ARRAY_SIZE);

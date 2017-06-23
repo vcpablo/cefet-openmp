@@ -7,18 +7,20 @@
 void parallelCountingSort(int array[], int arraySize){
 	
 	int i, j, count;
-	int *temp = malloc(arraySize*sizeof(int));
+//	int *temp = malloc(arraySize*sizeof(int));
+	int temp[arraySize];
 
 	/* Splits the main array through the threads */
+	
 
 	#pragma omp parallel for shared(array, arraySize, temp) private(i, j, count)
 	for(i = 0; i < arraySize; i++){
+	// printf("threads: %d", omp_get_num_threads());
 		count = 0;
 		
+		 
 		for(j = 0; j < arraySize; j++){
-	    		if(array[j] < array[i]){
-				count++;
-		    	} else if(array[j] == array[i] && j < i){
+	    		if(array[j] < array[i] || ( array[j] == array[i] && j < i ) ){
 				count++;
 		    	}
 		}
@@ -36,6 +38,6 @@ void parallelCountingSort(int array[], int arraySize){
 		array[i] = temp[i];
 	}
 
-	free(temp);
+	//free(temp);
 }
 
