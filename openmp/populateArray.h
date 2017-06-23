@@ -7,14 +7,15 @@ void populateArray(int array[], int arraySize){
 	int i = 0;
 
 	for(i = 0; i < arraySize; i++){
+array[i] = arraySize - i;
 		/* If the division per 2 is zero */
-		if(i % 2 == 0){
+/*		if(i % 2 == 0){
 			array[i] = i * 2;
 		} 
 
 		/* If the division per 2 is NOT zero */
-		else {
+/*		else {
 			array[i] = i;
-		}
+		}*/
 	}
 }

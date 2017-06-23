@@ -25,7 +25,7 @@ int maximum(int * array, int size){
 }
 
 /* Serial counting sort implementation */
-void serialCountingSort(int * array, int size){
+void serialCountingSort2(int * array, int size){
 
 	int curr = 0;
 	int max = maximum(array, size);
@@ -51,6 +51,31 @@ void serialCountingSort(int * array, int size){
 		}
 		num++;
 	}
+}
+
+void serialCountingSort(int * array, int arraySize) {
+
+	int i, j, count;
+
+	int temp[arraySize];
+
+	for(i = 0; i < arraySize; i++){
+		count = 0;
+		
+		 
+		for(j = 0; j < arraySize; j++){
+	    		if(array[j] < array[i] || ( array[j] == array[i] && j < i ) ){
+				count++;
+		    	}
+		}
+
+		temp[count] = array[i];
+	}
+
+	for (i = 0; i < arraySize; i++){
+		array[i] = temp[i];
+	}
+
 }
 
 
