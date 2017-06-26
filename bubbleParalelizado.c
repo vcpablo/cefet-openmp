@@ -11,7 +11,7 @@ void bubble_sort(long array[], long n){
 
         omp_set_num_threads(4);
         #ifdef _OPENMP
-            printf("ok ok");
+           // printf("ok ok   aiaiaiaiaia");
         #endif // _OPENMP
         #pragma omp parallel for private(d) private(t)
         for(c=0;c<(n-1); c++){
