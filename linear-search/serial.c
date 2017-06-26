@@ -10,11 +10,16 @@ int main()
 
   populate_array(a, ARRAYSIZE);
 
+  printf("Numero a ser encontrado: ");
+  scanf("%d", &key);
+
   //armazena o tempo em que o processamento foi iniciado
   clock_t begin = clock();
 
+  //faz a iteração no array
   for (i = 0; i < ARRAYSIZE; i++)
   {
+    //verifica se o número nessa posição é o número a ser encontrado
     if (a[i] == key)
     {
       printf("%d esta presente na posicao %d.\n", key, i+1);
