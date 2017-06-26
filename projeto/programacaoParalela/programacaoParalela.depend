@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1498507703 source:/home/andre/programacao_paralela/bubbleSerial.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1498507389 source:/home/andre/programacao_paralela/projeto/programacaoParalela/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1498509140 source:/home/andre/programacao_paralela/bubbleParalelizado.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<omp.h>
+
