@@ -1,7 +1,9 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <time.h>
 #include "../utils.h"
 #define ARRAYSIZE 1000000
+
+
 
 int main()
 {
@@ -33,3 +35,5 @@ int main()
 
   return 0;
 }
+
+*/
