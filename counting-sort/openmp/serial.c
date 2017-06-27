@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
-#include "../utils.h"
-#define ARRAYSIZE 10000
+#include "../../utils.h"
+#define ARRAYSIZE 20000
 
 void serialCountingSort(int * array, int arraySize);
 
@@ -20,7 +20,7 @@ int main()
   //calcula o tempo de execução
   clock_t end = clock();
   double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-  printf("%f segundos", time_spent);
+  printf("Serial: %f segundos\n\n", time_spent);
 
   return 0;
 }

@@ -5,7 +5,7 @@
 
 #include "mpiCountingSort.h"
 
-#define ARRAY_SIZE 100
+#define ARRAY_SIZE 20000
 
 int main(void){
     int my_rank, comm_sz;
