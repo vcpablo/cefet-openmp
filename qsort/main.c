@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../utils.h"
-#define ARRAYSIZE 10000
+#define ARRAYSIZE 20000
 
 int comp1(const void * x, const void * y)
 {
@@ -39,11 +39,13 @@ int main(int argc, char *argv[])
         time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
 	
-	printf("qSort: Ordem crescente: %f segundos\n\n", time_spent);
-	for(int i = 0; i < 5; i++) {
+	printf("qSort: %f segundos\n\n", time_spent);
+	/*for(int i = 0; i < 5; i++) {
 		printf("%d ", v[i]);
 
-        }
+        }*/
+
+/*
 
 	begin = clock();
 	
@@ -57,6 +59,6 @@ int main(int argc, char *argv[])
 		printf("%d ", v[i]);
         }
 	
-	printf("\n");
+	printf("\n");*/
 	return 0;
 }
