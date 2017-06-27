@@ -7,17 +7,19 @@
 void parallelCountingSort(int array[], int arraySize){
 	
 	int i, j, count;
-//	int *temp = malloc(arraySize*sizeof(int));
 	int temp[arraySize];
 
-	/* Splits the main array through the threads */
+	/* 
+		Distribui o array entre as threads disponíveis a partir da utilização do #pragma parallel for
+		
+		Variáveis compartilhadas: array, arraySize, temp
+		Variáveis privadas: i, j, count
+	*/
 	
 
 	#pragma omp parallel for shared(array, arraySize, temp) private(i, j, count)
 	for(i = 0; i < arraySize; i++){
-	// printf("threads: %d", omp_get_num_threads());
-		count = 0;
-		
+		count = 0;		
 		 
 		for(j = 0; j < arraySize; j++){
 	    		if(array[j] < array[i] || ( array[j] == array[i] && j < i ) ){
@@ -29,15 +31,12 @@ void parallelCountingSort(int array[], int arraySize){
 	}
 
 	/* 
-		Parallelized execution to copy from temp (temp) to main array (array)
-		using array, arraySize and temp as shared vars and i as private var.
+		Execução paralelizada da cópia do conteúdo do array temporário para o array passado por referência
 	*/
 
 	#pragma omp parallel for shared(array, arraySize, temp) private(i)
 	for (i = 0; i < arraySize; i++){
 		array[i] = temp[i];
 	}
-
-	//free(temp);
 }
 

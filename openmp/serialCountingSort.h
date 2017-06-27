@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Prints an array */
+/* Imprime um array */
 void printArray(int * array, int size){
 
   int curr;
   for(curr = 0; curr < size; curr++){
-    printf("%d, ", array[curr]);
+    printf("| %d, ", array[curr]);
   }
-  printf("\n");
+  printf(" | \n");
 }
 
 /* Returns the maximum value in an array */ 
@@ -24,23 +24,23 @@ int maximum(int * array, int size){
   return max;
 }
 
-/* Serial counting sort implementation */
-void serialCountingSort2(int * array, int size){
+/* Implementação Serial #1 do algoritmo COUNTING SORT  */
+void serialCountingSort1(int * array, int size){
 
 	int curr = 0;
 	int max = maximum(array, size);
 
-	/* Initialize an array with zeros */
+	/* Inicializa um arrau de zeros */
 	int * counting_array = calloc(max, sizeof(int));
 
-	/* Iterate over the input array, and add count to the appropriate index */
+	/* Itera sobre o array principal e adiciona a contagem do valor ao seu respectivo index no aray auxiliar */
 	for(curr = 0; curr < size; curr ++){
 		counting_array[array[curr]]++;
 	}
 
 	int num = 0;
 	curr = 0;
-	/* Override the input array to create the sorted list */
+	/* Sobrescreve o array principal com os valores ordenados */
 	while(curr <= size){
 		while(counting_array[num] > 0){
 			array[curr] = num;
@@ -53,10 +53,11 @@ void serialCountingSort2(int * array, int size){
 	}
 }
 
+/* Implementação serial #2 do algoritmo COUNTING SORT */
 void serialCountingSort(int * array, int arraySize) {
 
 	int i, j, count;
-
+	
 	int temp[arraySize];
 
 	for(i = 0; i < arraySize; i++){
@@ -64,6 +65,7 @@ void serialCountingSort(int * array, int arraySize) {
 		
 		 
 		for(j = 0; j < arraySize; j++){
+		
 	    		if(array[j] < array[i] || ( array[j] == array[i] && j < i ) ){
 				count++;
 		    	}
