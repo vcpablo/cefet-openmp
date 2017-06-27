@@ -12,8 +12,8 @@ void mpiCountingSort(int my_rank, int comm_sz, int size, MPI_Comm group){
 
     if(my_rank == 0){
         populateArray(array, size);
-        printf("Pre Counting Sort: ");
-        printArray(array, size);
+        printf("Pre Counting Sort:\n");
+	printArray(array, size);
     }
 
     /* Makes the array to be ordered available */
@@ -45,7 +45,9 @@ void mpiCountingSort(int my_rank, int comm_sz, int size, MPI_Comm group){
             array[positions[i].pos] = positions[i].val;
         }
         printf("\n\n");
-        printf("After Counting Sort:\t");
+        printf("After Counting Sort:\n");
         printArray(array, size);
     }
+
+
 }

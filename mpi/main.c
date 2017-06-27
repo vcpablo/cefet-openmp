@@ -7,7 +7,7 @@
 
 #define ARRAY_SIZE 100
 
-main(void){
+int main(void){
     int my_rank, comm_sz;
 
     MPI_Init(NULL,NULL);
@@ -18,5 +18,5 @@ main(void){
 
     MPI_Finalize();
 
-	return 0;
+ 	return 0;
 }
