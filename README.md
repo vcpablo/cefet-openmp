@@ -1,4 +1,4 @@
-# Programação em C no Linux
+# Programação em C no Linux com OpenMP
 
 ## Instalação
 
@@ -64,3 +64,39 @@ Depois que a implementação estiver terminada, a gente faz o merge.
 
 OpenMP
 * https://www.ibm.com/developerworks/br/aix/library/au-aix-openmp-framework/
+
+
+# Programação em C no Linux com MPI
+
+## Instalação
+
+`sudo apt-get install libopenmpi-dev`
+
+## Compilação
+
+No diretório da aplicação
+
+`make clean`
+
+`make all`
+
+
+## Execução
+
+`mpiexec − n <number of processes> ./executavel`
+
+# Trabalho
+
+O trabalho valerá 4 pontos consistirá em realizar a implementação do algoritmo de ordenação **Counting Sort** utilizando a biblioteca de paralelização **MPI** e responder às seguintes questões
+
+1. Quais são os dados que deverão ser distribuídos por mensagens? Qual  a função MPI você utilizará? Por quê? (1 ponto)
+2. Como o resultado final deverá ser composto? Qual a função do MPI você utilizou? Por quê? (1 ponto)
+3. Escreva um programa em C ou Java que “paralelize” o Counting Sort utilizando MPI. (1 ponto)
+4. Compare o desempenho da função com a original serial, com a função qsort da biblioteca do C e com a implementação com OpenMP. Explique as diferenças encontradas. Você acha possível o MPI “ganhar” do OpenMP ou do qsort? Por quê? (1 ponto)
+5. [Bônus] Descubra como executar o programa MPI de forma distribuída, ou seja, com os processos sendo executados em múltiplos computadores. (1 ponto)
+
+O relatório deverá conter, para cada um dos algoritmos acima:
+
+# Links Úteis
+Aula sobre MPI (AVA)
+* https://eadfriburgo.cefet-rj.br/pluginfile.php/6048/mod_resource/content/2/PPC-MPI.pdf
