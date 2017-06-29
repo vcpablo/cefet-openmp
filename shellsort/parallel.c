@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <time.h>
+#include <omp.h>
 #include "../utils.h"
-#define ARRAYSIZE 1000000
+#define ARRAYSIZE 100000
 
 void shellsort( int *vet, int size ) {
     int i, j, value;
     int gap = 1;
-    
+
     while( gap < size ) {
         gap = 3 * gap + 1;
     }
@@ -32,19 +32,19 @@ void shellsort( int *vet, int size ) {
 int main( void ) {
 
   int i, vet[ ARRAYSIZE ];
+  double start_time, run_time;
 
   populate_array( vet, ARRAYSIZE );
 
   //armazena o tempo em que o processamento foi iniciado
-  clock_t begin = clock();
- 
+  start_time = omp_get_wtime();
+
   // Ordena os valores
   shellsort( vet, ARRAYSIZE );
 
   // Calcula o tempo de execução
-  clock_t end = clock();
-  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-  printf("%f segundos\n", time_spent);
+  run_time = omp_get_wtime() - start_time;
+  printf("%f segundos", run_time);
 
   return 0;
 }
