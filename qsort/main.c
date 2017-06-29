@@ -3,22 +3,12 @@
 #include "../utils.h"
 #define ARRAYSIZE 20000
 
-int comp1(const void * x, const void * y)
+int compare(const void * x, const void * y)
 {
 	if(*(int*)x < *(int*)y)
 		return -1;
 	else if(*(int*)x > *(int*)y)
 		return 1;
-	else
-		return 0;
-}
-
-int comp2(const void * x, const void * y)
-{
-	if(*(int*)x < *(int*)y)
-		return 1;
-	else if(*(int*)x > *(int*)y)
-		return -1;
 	else
 		return 0;
 }
@@ -33,32 +23,12 @@ int main(int argc, char *argv[])
 
 	begin = clock();
 
-	qsort(v, 5, sizeof(int), comp1);
+	qsort(v, 5, sizeof(int), compare);
 
-        end = clock();
-        time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  end = clock();
+  time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
-	
 	printf("qSort: %f segundos\n\n", time_spent);
-	/*for(int i = 0; i < 5; i++) {
-		printf("%d ", v[i]);
 
-        }*/
-
-/*
-
-	begin = clock();
-	
-	qsort(v, 5, sizeof(int), comp2);
-
-	end = clock();
-        time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	
-	printf("\n\nOrdem decrescente:  %f segundos\n\n", time_spent);
-	for(int i = 0; i < 5; i++) {
-		printf("%d ", v[i]);
-        }
-	
-	printf("\n");*/
 	return 0;
 }
